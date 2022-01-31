@@ -51,6 +51,7 @@ class Database:
         self.database_path = database_path
         self.conn = sqlite3.connect(database_path)
         self.cur = self.conn.cursor()
+        self.create_table()
         self.word_count = self.get_max_id()
         self.word_count = 0 if self.word_count is None else self.word_count + 1
         self.feature_columns = get_feature_column_names()
@@ -107,12 +108,12 @@ class Database:
         """
         self.modify(create_query)
 
-    def insert_words_file(self, file):
+    def insert_words_file(self, file="words.txt"):
         with open(file, "r") as f:
             words = f.read().split("\n")
 
         for word in words:
-            if len(word) == 5:
+            if len(word) <= 5:
                 self.insert_word(word)
 
     def encode_word(self, word):

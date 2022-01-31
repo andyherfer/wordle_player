@@ -23,13 +23,19 @@ class WordlePlayer:
         else:
             self.condition = f" WHERE {condition}"
 
-    def add_positive(self, char):
+    def parse_char(self, char):
+        if len(char) == 2:
+            char = char[0] + str(int(char[1]) + 1)
         char = char.lower()
+        return char
+
+    def add_positive(self, char):
+        self.parse_char(char)
         condition = f"{char} = 1"
         self.add_condition(condition)
 
     def add_negative(self, char):
-        char = char.lower()
+        self.parse_char(char)
         condition = f"{char} = 0"
         self.add_condition(condition)
 
