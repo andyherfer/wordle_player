@@ -28,6 +28,7 @@ After you get a response from wordle, add rejected chars as:
 """
 
 player.add_negatives(['a', 'b', 'c'])
+player.add_negative('a1') # a1 was yello colored in wordle
 
 """
 Add yellow chars as:
