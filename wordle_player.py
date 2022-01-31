@@ -25,7 +25,7 @@ class WordlePlayer:
 
     def parse_char(self, char):
         if len(char) == 2:
-            char = char[0] + str(int(char[1]) + 1)
+            char = char[0] + str(int(char[1]) - 1)
         char = char.lower()
         return char
 
