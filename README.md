@@ -7,7 +7,7 @@ if you want to play wordle optimally, first you need to setup the database.
 Run:
 
 ```python
-import Database
+from database import Database
 
 db = Database("<path to database>")
 db.insert_words_file("<words.txt file path>")
