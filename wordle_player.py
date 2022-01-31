@@ -30,12 +30,12 @@ class WordlePlayer:
         return char
 
     def add_positive(self, char):
-        self.parse_char(char)
+        char = self.parse_char(char)
         condition = f"{char} = 1"
         self.add_condition(condition)
 
     def add_negative(self, char):
-        self.parse_char(char)
+        char = self.parse_char(char)
         condition = f"{char} = 0"
         self.add_condition(condition)
 
